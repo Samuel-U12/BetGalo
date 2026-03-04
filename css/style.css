@@ -56,6 +56,32 @@ footer {
     margin: 0 auto;
 }
 
+.rodape img{
+    height: 75%;
+    width: 75%;
+}
+
+.sobre-nos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50%;
+    width: 50%;
+}
+
+.sobre-nos h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    text-align: justify;
+}
+
+.sobre-nos{
+  line-height: 1.6;
+  font-size: 1.2rem;
+  text-align: justify;
+}
+
 /* Container do Título e Grid */
 .metodos-de-pagamento {
     display: flex;
