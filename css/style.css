@@ -1,4 +1,4 @@
-.conteudo{
+.conteudo {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -42,41 +42,42 @@
 
 /* Layout Geral do Footer */
 footer {
-    color: #fff;
-    background-color: #333; /* Fundo escuro como na imagem */
-    padding: 2rem;
-    text-align: center;
+  color: #fff;
+  background-color: #333;
+  /* Fundo escuro como na imagem */
+  padding: 2rem;
+  text-align: center;
 }
 
 .rodape {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 3rem;
+  margin: 0 auto;
 }
 
-.rodape img{
-    height: 75%;
-    width: 75%;
+.rodape img {
+  height: 75%;
+  width: 75%;
 }
 
 .sobre-nos {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 50%;
-    width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50%;
+  width: 50%;
 }
 
 .sobre-nos h1 {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    font-weight: 500;
-    text-align: justify;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  text-align: justify;
 }
 
-.sobre-nos{
+.sobre-nos {
   line-height: 1.6;
   font-size: 1.2rem;
   text-align: justify;
@@ -84,54 +85,65 @@ footer {
 
 /* Container do Título e Grid */
 .metodos-de-pagamento {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .metodos-de-pagamento h1 {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    font-weight: 500;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
 }
 
 /* Grid de 2 colunas */
 .caixas-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Força 2 colunas */
-    gap: 15px;
-    max-width: 400px; /* Limita a largura total do bloco de ícones */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* Força 2 colunas */
+  gap: 15px;
+  max-width: 400px;
+  /* Limita a largura total do bloco de ícones */
 }
 
 /* O "Card" de cada pagamento */
 .metodo-card {
-    background-color: #1a1a1a; /* Fundo interno quase preto */
-    border-radius: 15px;
-    padding: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* Borda dourada fina e elegante */
-    border: 2px solid #FFD700;
+  background-color: #1a1a1a;
+  /* Fundo interno quase preto */
+  border-radius: 15px;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Borda dourada fina e elegante */
+  border: 2px solid #FFD700;
 }
 
 .metodo-card:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 /* Ajuste da imagem dentro do card */
 .metodo-card img {
-    max-width: 100px; /* Tamanho controlado */
-    height: auto;
-    object-fit: contain;
+  max-width: 100px;
+  /* Tamanho controlado */
+  height: auto;
+  object-fit: contain;
 }
 
 @keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+  from {
+    opacity: .4
+  }
+
+  to {
+    opacity: 1
+  }
 }
+
 /* Botões de avançar e voltar */
-.prev, .next {
+.prev,
+.next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -144,7 +156,8 @@ footer {
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
   user-select: none;
-  background-color: rgba(0,0,0,0.3); /* Fundo sutil para visibilidade */
+  background-color: rgba(0, 0, 0, 0.3);
+  /* Fundo sutil para visibilidade */
 }
 
 /* Posiciona o botão "next" à direita */
@@ -154,6 +167,7 @@ footer {
 }
 
 /* Efeito ao passar o mouse */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
