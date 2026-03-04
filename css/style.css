@@ -77,6 +77,10 @@ footer{
   align-items: center; 
 }
 
+#caixas-pagamento{
+  
+}
+
 @keyframes fade {
   from {opacity: .4} 
   to {opacity: 1}
