@@ -47,6 +47,7 @@ footer {
   /* Fundo escuro como na imagem */
   padding: 2rem;
   text-align: center;
+  margin-top: 100px;
 }
 
 .rodape {
@@ -117,10 +118,6 @@ footer {
   align-items: center;
   /* Borda dourada fina e elegante */
   border: 2px solid #FFD700;
-}
-
-.metodo-card:hover {
-  transform: scale(1.05);
 }
 
 /* Ajuste da imagem dentro do card */
