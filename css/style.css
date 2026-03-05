@@ -225,3 +225,19 @@ footer {
   cursor: pointer;
   text-decoration: underline;
 }
+
+.cassino{
+  width: auto;
+  height: 100px;
+  display: flex;
+  padding: 2rem;
+}
+
+#jogos{
+  width: 100px;
+  height: 100px;
+  display: flex;
+  background-color: #ccc;
+  border: 2px solid #FFD700;
+  margin: 10px;
+}
