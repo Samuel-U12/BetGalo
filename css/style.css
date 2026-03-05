@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box;
   background-color: #1C1B1F;
+  color: white;
+  font-family: 'Julius Sans One' , sans-serif;
+  justify-items: center;
 }
 
 /* Slideshow container */
@@ -11,12 +14,15 @@
   height: 900px;
   margin: auto;
   border: 8px solid #FFD700;
+  justify-items: center;
 }
 
 .slideshow-container img{
   width: auto;
   height: 885px;
   margin-top: -25px;
+  justify-items: center;
+  
 }
 /* Esconde as imagens por padrão */
 .mySlides {
@@ -53,6 +59,7 @@
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.5s ease;
+  margin-bottom: 50px;
 }
 
 .active {
@@ -176,7 +183,7 @@ footer {
   border: 2px solid #ffd700; /* Borda dourada */
   border-radius: 10px;
   padding: 20px;
-  max-width: 600px;
+  width: 75%;
 }
 
 .match-row {
