@@ -7,17 +7,42 @@
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 50%;
-  position: relative;
+  width: 1250px;
+  height: 900px;
   margin: auto;
-  border-bottom: 4px solid #FFD700;
+  border: 8px solid #FFD700;
 }
 
+.slideshow-container img{
+  width: auto;
+  height: 885px;
+  margin-top: -25px;
+}
 /* Esconde as imagens por padrão */
 .mySlides {
   display: none;
 }
 
+
+/* Botões de avançar e voltar */
+.prev, .next{
+  cursor: pointer;
+  position: absolute;
+  top: 580px;
+  width: auto;
+  padding: 14px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 10px;
+  user-select: none;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+/* Botões de avançar e voltar */
+.next {
+  right: 12.3%;
+}
 
 /* Os pontinhos indicadores */
 .dot {
@@ -138,33 +163,58 @@ footer {
   }
 }
 
-/* Botões de avançar e voltar */
-.prev,
-.next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  background-color: rgba(0, 0, 0, 0.3);
-  /* Fundo sutil para visibilidade */
-}
 
-/* Posiciona o botão "next" à direita */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
 
 /* Efeito ao passar o mouse */
 .prev:hover,
 .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
+}
+
+.card-container {
+  background-color: #333;
+  border: 2px solid #ffd700; /* Borda dourada */
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 600px;
+}
+
+.match-row {
+  background-color: #444;
+  border: 1px solid #ffd700;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.odds {
+  display: flex;
+  gap: 10px;
+}
+
+.odd-box {
+  background-color: #666; /* Cinza claro dos botões */
+  padding: 5px 15px;
+  border-radius: 4px;
+  min-width: 80px;
+ display: flex;
+   flex-direction: column;
+  justify-content: space-between;
+}
+
+.odd-box strong {
+  color: #00ff00; /* Verde neon para os números */
+}
+
+.view-all {
+  width: 100%;
+  background: #555;
+  border: none;
+  color: #ccc;
+  padding: 10px;
+  cursor: pointer;
+  text-decoration: underline;
 }
