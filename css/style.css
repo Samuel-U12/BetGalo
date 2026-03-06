@@ -236,15 +236,14 @@ footer {
 }
 
 #jogos{
-  width: 220px;
+  width: 270px;
   height: 200px;
-  display: flex;
   background-color: #ccc;
   border: 2px solid #FFD700;
   margin: 50px;
 }
 
 #jogos img{
-  width: 216px;
+  width: 266px;
   height: 196px;
 }
