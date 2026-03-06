@@ -228,16 +228,22 @@ footer {
 
 .cassino{
   width: auto;
-  height: 100px;
+  height: 300px;
   display: flex;
   padding: 2rem;
+  margin: 10px;
 }
 
 #jogos{
-  width: 100px;
-  height: 100px;
+  width: 220px;
+  height: 200px;
   display: flex;
   background-color: #ccc;
   border: 2px solid #FFD700;
-  margin: 10px;
+  margin: 50px;
+}
+
+#jogos img{
+  width: 216px;
+  height: 196px;
 }
