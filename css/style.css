@@ -254,3 +254,58 @@ footer {
   width: 266px;
   height: 196px;
 }
+
+.tabela-classificacao {
+    border-collapse: collapse; /* Remove espaços entre as bordas */
+    width: 900px;
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 1.5px; /* Espaçamento entre as letras */
+}
+
+/* Estilo das células do cabeçalho */
+.tabela-classificacao th {
+    font-weight: normal;
+    padding: 20px 10px;
+    color: #7a7a7a;
+}
+
+/* Estilo das células do corpo da tabela */
+.tabela-classificacao td {
+    padding: 15px 10px;
+    color: #c0c0c0; /* Texto dos times e números um pouco mais claro */
+}
+
+/* --- AS LINHAS DOURADAS --- */
+/* Linha horizontal embaixo de cada linha da tabela */
+.tabela-classificacao th, 
+.tabela-classificacao td {
+    border-bottom: 1px solid #b89b3b; /* Cor dourada */
+}
+
+/* Linha vertical após a coluna de escudos */
+.tabela-classificacao .col-nome {
+    border-left: 1px solid #b89b3b;
+    text-align: left;
+    padding-left: 30px; /* Dá um respiro para o nome não colar na linha */
+}
+
+/* Linha vertical antes da coluna 'ULTIMAS' */
+.tabela-classificacao .col-ultimas {
+    border-left: 1px solid #b89b3b;
+}
+
+/* --- AJUSTES FINAIS --- */
+/* Tamanho dos escudos */
+.col-escudo img {
+    width: 35px;
+    height: 35px;
+    vertical-align: middle;
+}
+
+/* Estilo dos ícones ⊖ da última coluna */
+.col-ultimas span {
+    margin: 0 3px;
+    font-size: 16px;
+    color: #a0a0a0;
+}
