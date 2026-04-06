@@ -51,8 +51,8 @@ CAROUSEL
 ========================= */
 
 .carousel img {
-  height: 400px;
-  object-fit: cover;
+  height: 500px;
+  object-fit:fill;
   border-radius: 10px;
 }
 
