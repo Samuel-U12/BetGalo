@@ -1,76 +1,147 @@
-.cabecalho { 
-    background-color: #282828;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 40px;
-    border-bottom: 2px solid #FFD700;
-    position: relative;
+/* =========================
+HEADER BASE
+========================= */
+
+.cabecalho {
+
+  background-color: #282828;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 10px 40px;
+
+  border-bottom: 2px solid #FFD700;
+
+  position: relative;
 }
 
-.menu {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 40px;
-}
-
-.menu-item {
-    color: #fff;
-    text-decoration: none;
-    font-family: 'Julius Sans One' , sans-serif;
-    padding: 0 20px;
-    border-left: 1px solid #555;
-    font-size: 20px;
-    border: none;
-    transition: 0.2s;
-    display: flex;
-    align-items: center;
-}
-
-.menu-item:hover {
-  color: #FFD700;
-}
-
+/* =========================
+LOGO
+========================= */
 
 .logo {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    height: 100%;
+
+  display: flex;
+
+  align-items: center;
 }
 
 #logo-do-site {
-    width: 100px;
-    height: 100px;
+
+  width: 100px;
+
+  height: 100px;
 }
 
 #logo-texto {
-    font-family: 'Libre Barcode 39 Text', system-ui;
-    font-size: 45px;
-    color: #fff;    
+
+  font-family: 'Libre Barcode 39 Text', system-ui;
+
+  font-size: 45px;
+
+  color: white;
 }
 
-.menu-item:first-child {
-    border-left: none;
+/* =========================
+MENU CENTRAL
+========================= */
+
+.menu {
+
+  position: absolute;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+
+  gap: 40px;
 }
+
+/* LINKS MENU */
+
+.menu-item {
+
+  color: white;
+
+  text-decoration: none;
+
+  font-family: 'Julius Sans One', sans-serif;
+
+  font-size: 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  transition: 0.2s;
+
+  position: relative;
+}
+/* ANIMAÇÕES */
+.menu-item::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  bottom: -6px;
+
+  width: 0%;
+
+  height: 2px;
+
+  background-color: #FFD700;
+
+  transition: 0.3s;
+}
+
+.menu-item:hover::after {
+
+  width: 100%;
+}
+
+
+
+.menu-item:hover {
+
+  color: #FFD700;
+}
+
+/* LINK ATIVO */
 
 .item-ativo {
-    border-bottom: 3px solid #FFD700;
-    padding-bottom: 5px;
+
+  border-bottom: 4px solid #FFD700;
+
+  padding-bottom: 5px;
 }
 
+/* =========================
+PERFIL (LADO DIREITO)
+========================= */
 
 .link-perfil {
-    justify-self: end; 
-    display: flex;     
-    align-items: center;
-    text-decoration: none;
+
+  display: flex;
+
+  align-items: center;
+
+  text-decoration: none;
 }
 
 #foto-perfil {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+
+  width: 60px;
+
+  height: 60px;
+
+  border-radius: 50%;
 }

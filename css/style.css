@@ -1,8 +1,17 @@
+/* =========================
+RESET GLOBAL
+========================= */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+/* =========================
+BODY / BASE
+========================= */
+
 body {
   background: linear-gradient(
     to right,
@@ -11,284 +20,401 @@ body {
     #1C1B1F 80%,
     #2a2a2a 100%
   );
+
   font-family: system-ui;
 }
+
 .conteudo {
- width: 95%;
+  width: 95%;
   max-width: 1100px;
   margin: 40px auto;
   background-color: #1C1B1F;
   color: white;
 }
 
-/* Slideshow container */
+/* =========================
+TIPOGRAFIA
+========================= */
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 18px;
+  color: #FFD700;
+}
+
+/* =========================
+CAROUSEL
+========================= */
+
 .carousel img {
   height: 400px;
   object-fit: cover;
   border-radius: 10px;
 }
-h1 {
-  font-size: 28px;
-  margin-bottom: 20px;
-}
-h2 {
-  font-size: 18px;
-  color: #FFD700;
-}
-/* Layout Geral do Footer */
-footer {
-  color: #fff;
-  background-color: #333;
-  /* Fundo escuro como na imagem */
-  padding: 2rem;
-  text-align: center;
-  margin-top: 100px;
-}
 
-.rodape {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 3rem;
-  margin: 0 auto;
-}
-
-.rodape img {
-  height: 75%;
-  width: 75%;
-}
-
-.sobre-nos {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 50%;
-  width: 50%;
-}
-
-.sobre-nos h1 {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  font-weight: 500;
-  text-align: justify;
-}
-
-.sobre-nos {
-  line-height: 1.6;
-  font-size: 1.2rem;
-  text-align: justify;
-}
-
-/* Container do Título e Grid */
-.metodos-de-pagamento {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.metodos-de-pagamento h1 {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  font-weight: 500;
-}
-
-/* Grid de 2 colunas */
-.caixas-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  /* Força 2 colunas */
-  gap: 15px;
-  max-width: 400px;
-  /* Limita a largura total do bloco de ícones */
-}
-
-/* O "Card" de cada pagamento */
-.metodo-card {
-  background-color: #1a1a1a;
-  /* Fundo interno quase preto */
-  border-radius: 15px;
-  padding: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* Borda dourada fina e elegante */
-  border: 2px solid #FFD700;
-}
-
-/* Ajuste da imagem dentro do card */
-.metodo-card img {
-  max-width: 100px;
-  /* Tamanho controlado */
-  height: auto;
-  object-fit: contain;
-}
-
-@keyframes fade {
-  from {
-    opacity: .4
-  }
-
-  to {
-    opacity: 1
-  }
-}
-
-
-
-/* Efeito ao passar o mouse */
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
+/* =========================
+SEÇÃO JOGOS AO VIVO
+========================= */
 
 .card-container {
+
   background-color: #333;
-  border: 2px solid #ffd700; /* Borda dourada */
+  border: 2px solid #ffd700;
   border-radius: 10px;
+
   padding: 20px;
+
   width: 100%;
   max-width: 900px;
+
   margin: auto;
 }
 
 .match-row {
+
   background-color: #444;
   border: 1px solid #ffd700;
   border-radius: 8px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   padding: 10px;
   margin-bottom: 10px;
 }
 
 .match-row:hover {
+
   background-color: #555;
   transition: 0.3s;
 }
 
+/* ODDS */
+
 .odds {
+
   display: flex;
   gap: 10px;
 }
 
 .odd-box {
-  background-color: #666; /* Cinza claro dos botões */
+
+  background-color: #666;
+
   padding: 5px 15px;
+
   border-radius: 4px;
+
   min-width: 70px;
+
   text-align: center;
   font-size: 14px;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .odd-box strong {
-  color: #00ff00; /* Verde neon para os números */
+
+  color: #00ff00;
 }
 
+/* BOTÃO VER TODOS */
+
 .view-all {
+
   width: 100%;
+
   background: #FFD700;
+
   border: none;
-  color: #000;
+
+  color: black;
+
   padding: 12px;
+
   cursor: pointer;
+
   font-weight: bold;
+
   border-radius: 5px;
 }
 
 .view-all:hover {
+
   background: #e6c200;
 }
 
+/* =========================
+SEÇÃO CASSINO
+========================= */
+
 .cassino {
+
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+
   gap: 20px;
+
   padding: 20px;
 }
 
 .jogo {
+
   width: 200px;
+
   background-color: #2a2a2a;
+
   border: 2px solid #FFD700;
+
   border-radius: 10px;
+
   overflow: hidden;
+
   text-align: center;
-  transition: transform 0.3s;
+
   cursor: pointer;
+
   transition: 0.25s ease;
 }
 
 .jogo:hover {
+
   transform: scale(1.05);
 }
 
 .jogo img {
+
   width: 100%;
   height: 160px;
+
   object-fit: cover;
 }
 
 .jogo h3 {
+
   padding: 10px;
   font-size: 16px;
 }
 
+/* =========================
+TABELA CLASSIFICAÇÃO
+========================= */
+
 .tabela-classificacao {
-    border-collapse: collapse; /* Remove espaços entre as bordas */
-    width: 900px;
-    text-align: center;
-    font-size: 14px;
-    letter-spacing: 1.5px; /* Espaçamento entre as letras */
+
+  border-collapse: collapse;
+
+  width: 100%;
+
+  max-width: 900px;
+
+  margin: auto;
+
+  text-align: center;
+
+  font-size: 14px;
+
+  letter-spacing: 1.5px;
 }
 
-/* Estilo das células do cabeçalho */
+/* HEADER */
+
 .tabela-classificacao th {
-    font-weight: normal;
-    padding: 20px 10px;
-    color: #7a7a7a;
+
+  font-weight: normal;
+
+  padding: 20px 10px;
+
+  color: #7a7a7a;
 }
 
-/* Estilo das células do corpo da tabela */
+/* CELULAS */
+
 .tabela-classificacao td {
-    padding: 15px 10px;
-    color: #c0c0c0; /* Texto dos times e números um pouco mais claro */
+
+  padding: 15px 10px;
+
+  color: #c0c0c0;
 }
 
-/* --- AS LINHAS DOURADAS --- */
-/* Linha horizontal embaixo de cada linha da tabela */
-.tabela-classificacao th, 
+/* LINHAS DOURADAS */
+
+.tabela-classificacao th,
 .tabela-classificacao td {
-    border-bottom: 1px solid #b89b3b; /* Cor dourada */
+
+  border-bottom: 1px solid #b89b3b;
 }
 
-/* Linha vertical após a coluna de escudos */
+/* COLUNA NOME */
+
 .tabela-classificacao .col-nome {
-    border-left: 1px solid #b89b3b;
-    text-align: left;
-    padding-left: 30px; /* Dá um respiro para o nome não colar na linha */
+
+  border-left: 1px solid #b89b3b;
+
+  text-align: left;
+
+  padding-left: 30px;
 }
 
-/* Linha vertical antes da coluna 'ULTIMAS' */
+/* COLUNA ÚLTIMAS */
+
 .tabela-classificacao .col-ultimas {
-    border-left: 1px solid #b89b3b;
+
+  border-left: 1px solid #b89b3b;
 }
 
-/* --- AJUSTES FINAIS --- */
-/* Tamanho dos escudos */
+/* ESCUDOS */
+
 .col-escudo img {
-    width: 35px;
-    height: 35px;
-    vertical-align: middle;
+
+  width: 35px;
+
+  height: 35px;
+
+  vertical-align: middle;
 }
 
-/* Estilo dos ícones ⊖ da última coluna */
+/* ICONES ULTIMAS */
+
 .col-ultimas span {
-    margin: 0 3px;
-    font-size: 16px;
-    color: #a0a0a0;
+
+  margin: 0 3px;
+
+  font-size: 16px;
+
+  color: #a0a0a0;
+}
+
+/* =========================
+FOOTER
+========================= */
+
+footer {
+
+  color: white;
+
+  background-color: #333;
+
+  padding: 2rem;
+
+  text-align: center;
+
+  margin-top: 100px;
+}
+
+.rodape {
+
+  display: flex;
+
+  justify-content: space-around;
+
+  flex-wrap: wrap;
+
+  gap: 3rem;
+
+  margin: 0 auto;
+}
+
+.rodape img {
+
+  height: 75%;
+
+  width: 75%;
+}
+
+/* SOBRE NOS */
+
+.sobre-nos {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  height: 50%;
+
+  width: 50%;
+
+  line-height: 1.6;
+
+  font-size: 1.2rem;
+
+  text-align: justify;
+}
+
+.sobre-nos h1 {
+
+  font-size: 1.5rem;
+
+  margin-bottom: 1.5rem;
+
+  font-weight: 500;
+}
+
+/* METODOS PAGAMENTO */
+
+.metodos-de-pagamento {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.metodos-de-pagamento h1 {
+
+  font-size: 1.5rem;
+
+  margin-bottom: 1.5rem;
+
+  font-weight: 500;
+}
+
+/* GRID PAGAMENTO */
+
+.caixas-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 15px;
+
+  max-width: 400px;
+}
+
+.metodo-card {
+
+  background-color: #1a1a1a;
+
+  border-radius: 15px;
+
+  padding: 15px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  border: 2px solid #FFD700;
+}
+
+.metodo-card img {
+
+  max-width: 100px;
+
+  height: auto;
+
+  object-fit: contain;
 }
