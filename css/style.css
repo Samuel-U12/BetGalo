@@ -54,6 +54,16 @@ CAROUSEL
   height: 500px;
   object-fit:fill;
   border-radius: 10px;
+  filter: brightness(75%);
+}
+.carousel-caption h5{
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+.carousel-caption p{
+  font-size: 18px;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
 }
 
 /* =========================
