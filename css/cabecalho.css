@@ -1,15 +1,19 @@
 .cabecalho { 
     background-color: #282828;
-    display: grid; 
-    grid-template-columns: 1fr auto 1fr; 
-    padding: 0 20px;
-    border-bottom: 4px solid #FFD700;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+    border-bottom: 2px solid #FFD700;
+    position: relative;
 }
 
 .menu {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    align-items: center;
-    height: 100%;
+    gap: 40px;
 }
 
 .menu-item {
@@ -19,6 +23,14 @@
     padding: 0 20px;
     border-left: 1px solid #555;
     font-size: 20px;
+    border: none;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.menu-item:hover {
+  color: #FFD700;
 }
 
 

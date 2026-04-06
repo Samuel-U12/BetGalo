@@ -11,79 +11,30 @@ body {
     #1C1B1F 80%,
     #2a2a2a 100%
   );
+  font-family: system-ui;
 }
 .conteudo {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+ width: 95%;
+  max-width: 1100px;
+  margin: 40px auto;
   background-color: #1C1B1F;
   color: white;
 }
 
 /* Slideshow container */
-.slideshow-container {
-  width: 1250px;
-  height: 900px;
-  margin: auto;
-  border: 8px solid #FFD700;
-  justify-items: center;
-}
-
-.slideshow-container img{
-  width: 1236px;
-  height: 885px;
-  margin-top: -25px;
-  justify-items: center;
-  
-}
-/* Esconde as imagens por padrão */
-.mySlides {
-  display: none;
-}
-
-
-/* Botões de avançar e voltar */
-.prev, .next{
-  cursor: pointer;
-  position: absolute;
-  top: 580px;
-  width: auto;
-  padding: 14px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
+.carousel img {
+  height: 400px;
+  object-fit: cover;
   border-radius: 10px;
-  user-select: none;
-  background-color: rgba(0, 0, 0, 0.3);
 }
-/* Botões de avançar e voltar */
-.next {
-  right: 12.3%;
+h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
 }
-
-/* Os pontinhos indicadores */
-.dot {
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.5s ease;
-  margin-bottom: 50px;
+h2 {
+  font-size: 18px;
+  color: #FFD700;
 }
-
-.active {
-  background-color: #717171;
-}
-
-/* Animação de esmaecimento (Fade) */
-.fade {
-  animation-name: fade;
-  animation-duration: 5s;
-}
-
 /* Layout Geral do Footer */
 footer {
   color: #fff;
@@ -195,7 +146,9 @@ footer {
   border: 2px solid #ffd700; /* Borda dourada */
   border-radius: 10px;
   padding: 20px;
-  width: 75%;
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
 }
 
 .match-row {
@@ -223,9 +176,11 @@ footer {
   background-color: #666; /* Cinza claro dos botões */
   padding: 5px 15px;
   border-radius: 4px;
-  min-width: 80px;
- display: flex;
-   flex-direction: column;
+  min-width: 70px;
+  text-align: center;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 
@@ -257,13 +212,15 @@ footer {
 }
 
 .jogo {
-  width: 250px;
+  width: 200px;
   background-color: #2a2a2a;
   border: 2px solid #FFD700;
   border-radius: 10px;
   overflow: hidden;
   text-align: center;
   transition: transform 0.3s;
+  cursor: pointer;
+  transition: 0.25s ease;
 }
 
 .jogo:hover {
