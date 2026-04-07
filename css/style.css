@@ -28,8 +28,8 @@ body {
   width: 95%;
   max-width: 1100px;
   margin: 40px auto;
-  background-color: #1C1B1F;
   color: white;
+  /* tirei o 'background-color: #1C1B1F;' pq tava colocando uma sombra. E tbm pq não faz sentido tem isso aq, Samuel*/
 }
 
 /* =========================
