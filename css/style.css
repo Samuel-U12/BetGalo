@@ -82,6 +82,9 @@ SEÇÃO JOGOS AO VIVO
   max-width: 900px;
 
   margin: auto;
+  margin-right: 10px;
+  text-decoration: none;
+  color: #c0c0c0;
 }
 
 .match-row {
