@@ -129,13 +129,14 @@ PERFIL (LADO DIREITO)
 ========================= */
 
 .link-perfil {
-
   display: flex;
-
   align-items: center;
-
   text-decoration: none;
+}
 
+.link-perfil a {
+  text-decoration: none;
+  color: inherit; /* mantém a cor do texto */
 }
 
 #foto-perfil {
