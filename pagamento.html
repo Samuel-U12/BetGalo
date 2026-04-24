@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/cabecalho.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/pagamento.css">
     <link rel="icon" href="./img/logo.ico" type="image/ico">
     <title>BetGalo - Pagamento</title>
+    <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Libre+Barcode+39+Text&display=swap"rel="stylesheet">
 </head>
 
 <body>
@@ -21,9 +23,11 @@
             <a href="apostas.html" class="menu-item">APOSTAS</a>
             <a href="cassino.html" class="menu-item">CASSINO</a>
         </nav>
-        <a href="#" class="link-perfil">
-            <img src="img/perfil.jpg" alt="Foto de perfil" id="foto-perfil">
-        </a>
+
+        <div class="link-perfil">
+            <a href="pagamento.html"><div class="card-container">R$200000</div></a>
+            <a href="perfil.html"><img src="img/perfil.jpg" alt="Foto de perfil" id="foto-perfil"></a>
+        </div>
     </header>
 
     <main class="payment-card">
@@ -35,7 +39,7 @@
         <div id="container-cartao">
             <form class="payment-form" id="form-cartao">
                 <div class="input-group">
-                    <input type="text" placeholder="NÚMERO DO CARTÃO" id="num-cartao">
+                    <input type="text" placeholder="NÚMERO DO CARTÃO" id="num-cartao" maxlength="16">
                     <span class="icon">💳</span>
                 </div>
                 <div class="input-group">
