@@ -95,6 +95,8 @@ MENU CENTRAL
   transition: 0.2s;
 
   position: relative;
+
+  margin: 10px;
 }
 /* ANIMAÇÕES */
 .menu-item::after {
