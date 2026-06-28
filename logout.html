@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BetGalo - Sessão Encerrada</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Libre+Barcode+39+Text&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cabecalho.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="bg-slate-900 text-white font-sans min-h-screen flex flex-col justify-between">
+
+    <!-- CABEÇALHO SEM OS DADOS PRIVADOS DO USUÁRIO -->
+    <header class="cabecalho">
+        <div class="logo">
+            <img src="img/image 22.png" id="logo-do-site" alt="logo">
+            <span id="logo-texto">BET GALO</span>
+        </div>
+
+        <nav class="menu">
+            <a href="index.html" class="menu-item item-ativo">HOME</a>
+            <a href="apostas.html" class="menu-item">APOSTAS</a>
+            <a href="cassino.html" class="menu-item">CASSINO</a>
+        </nav>
+
+        <div class="link-perfil flex gap-3">
+            <a href="login.html" class="text-xs bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold py-2 px-4 rounded-lg transition uppercase tracking-wider no-underline">Login</a>
+            <a href="cadastro.html" class="text-xs bg-slate-700 hover:bg-slate-600 text-white font-bold py-2 px-4 rounded-lg transition uppercase tracking-wider no-underline">Cadastrar</a>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="container mx-auto p-4 md:p-8 flex-grow flex items-center justify-center">
+        <div class="w-full max-w-md bg-[#333] p-8 rounded-2xl shadow-xl border border-slate-700 text-center">
+            
+            <div class="w-20 h-20 bg-slate-900 rounded-full flex items-center justify-center text-3xl text-amber-500 mx-auto mb-6 border border-slate-700 shadow-inner">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+
+            <h2 class="text-2xl font-black mb-2 tracking-wide uppercase text-amber-500">Volte Sempre!</h2>
+            <p class="text-slate-300 text-sm mb-8">Você desconectou da sua conta com segurança. Pronto para tentar a sorte de novo?</p>
+            
+            <!-- Opções de Retorno com botões puramente HTML -->
+            <div class="space-y-3">
+                <a href="login.html" class="w-full flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 text-slate-950 font-black py-3 px-4 rounded-xl text-sm transition uppercase tracking-wider shadow-lg no-underline">
+                    <i class="fa-solid fa-key"></i> Fazer Login
+                </a>
+                
+                <a href="cadastro.html" class="w-full flex items-center justify-center gap-2 bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 px-4 rounded-xl text-sm transition uppercase tracking-wider border border-slate-600 no-underline">
+                    <i class="fa-solid fa-user-plus"></i> Criar Nova Conta
+                </a>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-700/60">
+                <a href="index.html" class="text-xs text-slate-400 hover:text-amber-500 transition no-underline">
+                    <i class="fa-solid fa-arrow-left mr-1"></i> Voltar para a Página Inicial
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="rodape">
+            <img src="img/Times.png" alt="times">
+            <div class="sobre-nos">
+                <h1>Sobre nós:</h1>
+                <p>BetGalo.com é um site operado pela Kaizen Gaming Brasil Ltda., uma empresa registrada sob o CNPJ nº 46.786.961/0001-74, com endereço registrado na Avenida Brasil, nº 667, 27º andar, Edificio do Galo, Bairro Pinheiros, CEP: 01.234-050, Rio Branco/AC, licenciada - em nível federal - pela Secretaria de Prêmios e Apostas do Ministério da Fazenda (“SPA/MF”) no Brasil com o Requerimento SIGAP 0001/2024, autorizado pela Portaria SPA/MF nº 246 de 2025. | Central de Ajuda: 999999999999, 08008888888 | suporte@betgalo.br | Ouvidoria da BetGalo: 08008888888, ouvidoria@betgalo.bet.br Atendimento a Autoridades Públicas -https://www.galo.bet.br/myaccount/complaints</p>
+            </div>
+
+            <div class="metodos-de-pagamento">
+                <h1>Métodos de pagamento</h1>
+                <div class="caixas-grid">
+                    <div class="metodo-card">
+                        <img src="img/pix1.png" alt="Pix">
+                    </div>
+                    <div class="metodo-card">
+                        <img src="img/caixa.png" alt="Caixa">
+                    </div>
+                    <div class="metodo-card">
+                        <img src="img/nu.png" alt="Nubank">
+                    </div>
+                    <div class="metodo-card">
+                        <img src="img/banco-do-brasil.png" alt="BB">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

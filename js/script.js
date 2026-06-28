@@ -55,27 +55,6 @@ if (document.getElementsByClassName("mySlides").length > 0) {
 }
 
 
-// --- FUNÇÃO DE VALIDAÇÃO MATEMÁTICA DO CPF ---
-function validarCPF(cpf) {
-    cpf = cpf.replace(/[^\d]+/g, ''); // Remove pontos e traços
-    if (cpf.length !== 11 || !!cpf.match(/(\d)\1{10}/)) return false; // Verifica tamanho e números repetidos
-
-    let soma = 0, resto;
-    // Validação do 1º dígito
-    for (let i = 1; i <= 9; i++) soma = soma + parseInt(cpf.substring(i-1, i)) * (11 - i);
-    resto = (soma * 10) % 11;
-    if ((resto === 10) || (resto === 11)) resto = 0;
-    if (resto !== parseInt(cpf.substring(9, 10))) return false;
-
-    soma = 0;
-    // Validação do 2º dígito
-    for (let i = 1; i <= 10; i++) soma = soma + parseInt(cpf.substring(i-1, i)) * (12 - i);
-    resto = (soma * 10) % 11;
-    if ((resto === 10) || (resto === 11)) resto = 0;
-    if (resto !== parseInt(cpf.substring(10, 11))) return false;
-
-    return true;
-}
 
 // --- FUNÇÃO PARA GERAR O PIX APÓS VALIDAÇÃO ---
 function gerarPix() {
@@ -83,18 +62,11 @@ function gerarPix() {
     const areaQr = document.getElementById('area-qrcode');
     const btnGerar = document.getElementById('btn-gerar-pix');
 
-    if (validarCPF(cpfInput.value)) {
-        // Se for válido, libera o QR Code
         btnGerar.style.display = 'none';
         areaQr.style.display = 'block';
         cpfInput.disabled = true; // Bloqueia o input para não mudar após gerar
         iniciarTimer();
-    } else {
-        // Se for inválido, avisa o usuário
-        alert("❌ CPF Inválido! Por favor, confira os números.");
-        cpfInput.style.borderColor = "red";
-        cpfInput.focus();
-    }
+   
 }
 
 // --- TIMER REGRESSIVO ---
