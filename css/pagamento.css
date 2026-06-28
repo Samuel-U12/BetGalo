@@ -63,7 +63,7 @@ body {
     background: #474747;
     color: white;
     border-bottom: none;
-    border-left: none;
+    border-left: 1px solid #ffcc00;
 }
 
 .tab:first-child {
