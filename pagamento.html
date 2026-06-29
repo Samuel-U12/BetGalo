@@ -1,23 +1,26 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BetGalo - Carteira & Pagamentos</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Seus arquivos originais de estilo -->
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/cabecalho.css">
-    <link rel="stylesheet" href="css/pagamento.css">
-    <link rel="icon" href="./img/logo.ico" type="image/ico">
-    <title>BetGalo - Pagamento</title>
-    <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Libre+Barcode+39+Text&display=swap"
-        rel="stylesheet">
 </head>
+<body class="bg-[#0a1015] min-h-screen flex flex-col text-slate-200 select-none">
 
-<body>
+    <!-- SEU CABEÇALHO ORIGINAL INTEGRADO -->
     <header class="cabecalho">
         <div class="logo">
             <img src="img/image 22.png" id="logo-do-site" alt="logo">
             <span id="logo-texto">BET GALO</span>
         </div>
+
         <nav class="menu">
             <a href="index.html" class="menu-item">HOME</a>
             <a href="apostas.html" class="menu-item">APOSTAS</a>
@@ -25,59 +28,220 @@
         </nav>
 
         <div class="link-perfil">
-            <a href="pagamento.html">
-                <div class="card-container">R$20.000,00</div>
-            </a>
+            <a href="pagamento.html"><div class="card-container" id="saldo-topo">R$20.000,00</div></a>
             <a href="perfil.html"><img src="img/perfil.jpg" alt="Foto de perfil" id="foto-perfil"></a>
         </div>
     </header>
 
-    <main class="payment-card">
-        <div class="tabs">
-            <button class="tab active" id="btn-cartao" onclick="trocarAba('cartao')">CARTÃO</button>
-            <button class="tab" id="btn-pix" onclick="trocarAba('pix')">PIX</button>
-        </div>
+    <!-- CONTEÚDO PRINCIPAL DA CARTEIRA -->
+    <main class="flex-1 flex items-center justify-center p-4">
+        <div class="w-full max-w-md bg-[#121c24] rounded-3xl p-6 shadow-2xl border border-slate-800">
+            
+            <!-- Título da Seção -->
+            <div class="flex items-center gap-3 mb-6 border-b border-slate-800 pb-4">
+                <div class="text-amber-500 text-xl"><i class="fa-solid fa-wallet"></i></div>
+                <h2 class="text-lg font-black uppercase tracking-wider text-white">Minha Carteira</h2>
+            </div>
 
-        <div id="container-cartao">
-            <form class="payment-form" id="form-cartao">
-                <div class="input-group">
-                    <input type="text" placeholder="NÚMERO DO CARTÃO" id="num-cartao" maxlength="16">
-                    <span class="icon">💳</span>
+            <!-- Bloco de Exibição de Saldo Interno -->
+            <div class="bg-[#1a2630] p-4 rounded-2xl border border-slate-700/50 mb-6 text-center">
+                <span class="text-xs text-slate-400 uppercase font-bold tracking-wider block mb-1">Saldo Disponível</span>
+                <span id="saldo-carteira" class="text-3xl font-black text-amber-400">R$ 20.000,00</span>
+            </div>
+
+            <!-- Abas Principais (Depósito / Saque) -->
+            <div class="grid grid-cols-2 gap-2 mb-6">
+                <button onclick="alternarAbaPrincipal('deposito')" id="btn-tab-deposito" class="py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition bg-amber-500 text-slate-950">
+                    <i class="fa-solid fa-arrow-down-long mr-1"></i> Depósito
+                </button>
+                <button onclick="alternarAbaPrincipal('saque')" id="btn-tab-saque" class="py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition bg-slate-800 text-slate-400 hover:bg-slate-700">
+                    <i class="fa-solid fa-arrow-up-long mr-1"></i> Saque
+                </button>
+            </div>
+
+            <!-- ÁREA DE DEPÓSITO -->
+            <div id="secao-deposito" class="space-y-4">
+                
+                <!-- Escolha do Método de Depósito -->
+                <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider">Forma de Pagamento:</label>
+                <div class="grid grid-cols-2 gap-2 mb-4">
+                    <button onclick="selecionarMetodoDeposito('pix')" id="btn-metodo-pix" class="py-3 rounded-xl font-bold text-xs border-2 border-amber-500 bg-[#1a2630] text-white flex items-center justify-center gap-2 transition">
+                        <i class="fa-brands fa-pix text-cyan-400 text-sm"></i> PIX
+                    </button>
+                    <button onclick="selecionarMetodoDeposito('cartao')" id="btn-metodo-cartao" class="py-3 rounded-xl font-bold text-xs border-2 border-transparent bg-[#1a2630] text-slate-400 flex items-center justify-center gap-2 transition hover:text-white">
+                        <i class="fa-solid fa-credit-card text-amber-500"></i> CARTÃO
+                    </button>
                 </div>
-                <div class="input-group">
-                    <input type="text" placeholder="DATA (MM/AA)" id="data-validade" maxlength="5">
-                    <span class="icon">📅</span>
-                </div>
-                <div class="input-group">
-                    <input type="password" placeholder="CÓDIGO DE SEGURANÇA" maxlength="3">
-                    <span class="icon">🔒</span>
-                </div>
-                <button type="submit" class="btn-submit">CADASTRAR CARTÃO</button>
-            </form>
-        </div>
 
-        <div id="container-pix" style="display: none;">
-            <div class="pix-container">
-
-                <div class="input-group">
-                    <input type="text" id="nome" placeholder="DIGITE SEU NOME" maxlength="60">
+                <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider">Selecione ou digite o valor:</label>
+                <!-- Valores Rápidos -->
+                <div class="grid grid-cols-3 gap-2">
+                    <button onclick="definirValor(20)" class="bg-[#1a2630] hover:border-amber-500 border border-transparent py-2 rounded-xl text-sm font-bold text-white transition">+ R$ 20</button>
+                    <button onclick="definirValor(50)" class="bg-[#1a2630] hover:border-amber-500 border border-transparent py-2 rounded-xl text-sm font-bold text-white transition">+ R$ 50</button>
+                    <button onclick="definirValor(100)" class="bg-[#1a2630] hover:border-amber-500 border border-transparent py-2 rounded-xl text-sm font-bold text-white transition">+ R$ 100</button>
                 </div>
 
-                <div class="input-group">
-                    <input type="text" id="cpf" placeholder="DIGITE SEU CPF" maxlength="14">
-                    <span class="icon">👤</span>
+                <!-- Input de Valor -->
+                <div class="relative">
+                    <span class="absolute left-4 top-3.5 text-slate-500 font-bold text-sm">R$</span>
+                    <input type="number" id="input-valor" value="50" class="w-full bg-[#16222c] border border-slate-700 rounded-xl py-3 pl-10 pr-4 text-white font-bold outline-none focus:border-amber-500 transition">
                 </div>
 
-                <button type="button" class="btn-submit" id="btn-gerar-pix" onclick="gerarPix()">GERAR QR CODE</button>
+                <!-- Formulário Dinâmico: PIX -->
+                <div id="form-deposito-pix" class="pt-2">
+                    <button onclick="processarTransacao('deposito-pix')" class="w-full bg-green-500 hover:bg-green-600 text-slate-950 font-black py-3.5 rounded-xl text-xs uppercase tracking-widest transition shadow-lg">
+                        Gerar QR Code Pix
+                    </button>
+                </div>
 
-                <div id="area-qrcode" style="display: none; text-align: center;">
-                    <img src="img/qrcode.png" alt="QR Code" class="qrcode">
-                    <div class="timer" id="display-timer">05:00</div>
+                <!-- Formulário Dinâmico: Cartão de Crédito -->
+                <div id="form-deposito-cartao" class="space-y-3 pt-2 hidden">
+                    <div>
+                        <input type="text" placeholder="Número do Cartão" class="w-full bg-[#16222c] border border-slate-700 rounded-xl py-2.5 px-4 text-sm text-white outline-none focus:border-amber-500 transition">
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Nome Impresso no Cartão" class="w-full bg-[#16222c] border border-slate-700 rounded-xl py-2.5 px-4 text-sm text-white outline-none focus:border-amber-500 transition">
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <input type="text" placeholder="Validade (MM/AA)" class="w-full bg-[#16222c] border border-slate-700 rounded-xl py-2.5 px-4 text-sm text-white outline-none focus:border-amber-500 transition">
+                        <input type="text" placeholder="CVV" class="w-full bg-[#16222c] border border-slate-700 rounded-xl py-2.5 px-4 text-sm text-white outline-none focus:border-amber-500 transition">
+                    </div>
+                    <button onclick="processarTransacao('deposito-cartao')" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-black py-3.5 rounded-xl text-xs uppercase tracking-widest transition shadow-lg mt-2">
+                        Pagar com Cartão
+                    </button>
                 </div>
             </div>
+
+            <!-- ÁREA DE SAQUE -->
+            <div id="secao-saque" class="space-y-4 hidden">
+                <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider">Tipo de Chave Pix:</label>
+                <select class="w-full bg-[#16222c] border border-slate-700 rounded-xl py-3 px-4 text-sm text-white outline-none focus:border-amber-500 transition">
+                    <option>CPF</option>
+                    <option>E-mail</option>
+                    <option>Telefone</option>
+                </select>
+
+                <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider">Chave de Destino:</label>
+                <input type="text" placeholder="Insira sua chave Pix" class="w-full bg-[#16222c] border border-slate-700 rounded-xl py-3 px-4 text-sm text-white outline-none focus:border-amber-500 transition">
+
+                <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider">Valor do Resgate:</label>
+                <div class="relative">
+                    <span class="absolute left-4 top-3.5 text-slate-500 font-bold text-sm">R$</span>
+                    <input type="number" id="input-saque" placeholder="0,00" class="w-full bg-[#16222c] border border-slate-700 rounded-xl py-3 pl-10 pr-4 text-white font-bold outline-none focus:border-amber-500 transition">
+                </div>
+
+                <button onclick="processarTransacao('saque')" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-black py-3.5 rounded-xl text-xs uppercase tracking-widest transition shadow-lg mt-2">
+                    Solicitar Saque Imediato
+                </button>
+            </div>
+
+            <!-- Feedback de Alerta de Sucesso/Erro -->
+            <div id="alerta-carteira" class="hidden text-center text-xs font-bold p-3 rounded-xl mt-4 border"></div>
+
         </div>
     </main>
-    <script src="js/script.js"></script>
-</body>
 
+    <!-- INTERAÇÕES INTERNAS (JS) -->
+    <script>
+        let saldoGlobal = 20000.00;
+
+        function sincronizarInterfaces() {
+            const formatado = saldoGlobal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            document.getElementById('saldo-topo').innerText = formatado;
+            document.getElementById('saldo-carteira').innerText = formatado;
+        }
+
+        function definirValor(qtd) {
+            document.getElementById('input-valor').value = qtd;
+        }
+
+        function alternarAbaPrincipal(tipo) {
+            const dep = document.getElementById('secao-deposito');
+            const saq = document.getElementById('secao-saque');
+            const btnDep = document.getElementById('btn-tab-deposito');
+            const btnSaq = document.getElementById('btn-tab-saque');
+            document.getElementById('alerta-carteira').classList.add('hidden');
+
+            if (tipo === 'deposito') {
+                dep.classList.remove('hidden');
+                saq.classList.add('hidden');
+                btnDep.className = "py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition bg-amber-500 text-slate-950";
+                btnSaq.className = "py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition bg-slate-800 text-slate-400 hover:bg-slate-700";
+            } else {
+                dep.classList.add('hidden');
+                saq.classList.remove('hidden');
+                btnDep.className = "py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition bg-slate-800 text-slate-400 hover:bg-slate-700";
+                btnSaq.className = "py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition bg-amber-500 text-slate-950";
+            }
+        }
+
+        function selecionarMetodoDeposito(metodo) {
+            const formPix = document.getElementById('form-deposito-pix');
+            const formCartao = document.getElementById('form-deposito-cartao');
+            const btnPix = document.getElementById('btn-metodo-pix');
+            const btnCartao = document.getElementById('btn-metodo-cartao');
+            document.getElementById('alerta-carteira').classList.add('hidden');
+
+            if (metodo === 'pix') {
+                formPix.classList.remove('hidden');
+                formCartao.classList.add('hidden');
+                btnPix.className = "py-3 rounded-xl font-bold text-xs border-2 border-amber-500 bg-[#1a2630] text-white flex items-center justify-center gap-2 transition";
+                btnCartao.className = "py-3 rounded-xl font-bold text-xs border-2 border-transparent bg-[#1a2630] text-slate-400 flex items-center justify-center gap-2 transition hover:text-white";
+            } else {
+                formPix.classList.add('hidden');
+                formCartao.classList.remove('hidden');
+                btnPix.className = "py-3 rounded-xl font-bold text-xs border-2 border-transparent bg-[#1a2630] text-slate-400 flex items-center justify-center gap-2 transition hover:text-white";
+                btnCartao.className = "py-3 rounded-xl font-bold text-xs border-2 border-amber-500 bg-[#1a2630] text-white flex items-center justify-center gap-2 transition";
+            }
+        }
+
+        function processarTransacao(modo) {
+            const alerta = document.getElementById('alerta-carteira');
+            alerta.classList.remove('hidden');
+
+            const valorInput = parseFloat(document.getElementById('input-valor').value);
+
+            if (modo === 'deposito-pix') {
+                if (isNaN(valorInput) || valorInput <= 0) {
+                    mostrarAlerta("Digite um valor válido para depósito.", "bg-red-950/80 border-red-700 text-red-400");
+                    return;
+                }
+                saldoGlobal += valorInput;
+                sincronizarInterfaces();
+                mostrarAlerta(`Código Copia e Cola gerado! Adicionado R$ ${valorInput.toFixed(2)} ao saldo de testes.`, "bg-green-950/80 border-green-700 text-green-400");
+            } 
+            else if (modo === 'deposito-cartao') {
+                if (isNaN(valorInput) || valorInput <= 0) {
+                    mostrarAlerta("Digite um valor válido para depósito.", "bg-red-950/80 border-red-700 text-red-400");
+                    return;
+                }
+                saldoGlobal += valorInput;
+                sincronizarInterfaces();
+                mostrarAlerta(`Transação aprovada com sucesso! R$ ${valorInput.toFixed(2)} creditados via cartão.`, "bg-green-950/80 border-green-700 text-green-400");
+            } 
+            else if (modo === 'saque') {
+                const valorSaque = parseFloat(document.getElementById('input-saque').value);
+                if (isNaN(valorSaque) || valorSaque <= 0) {
+                    mostrarAlerta("Digite um valor válido para o saque.", "bg-red-950/80 border-red-700 text-red-400");
+                    return;
+                }
+                if (valorSaque > saldoGlobal) {
+                    mostrarAlerta("Margem de saldo insuficiente para este resgate.", "bg-red-950/80 border-red-700 text-red-400");
+                    return;
+                }
+                saldoGlobal -= valorSaque;
+                sincronizarInterfaces();
+                mostrarAlerta(`Saque de R$ ${valorSaque.toFixed(2)} enviado à sua chave Pix!`, "bg-green-950/80 border-green-700 text-green-400");
+            }
+        }
+
+        function mostrarAlerta(msg, classes) {
+            const alerta = document.getElementById('alerta-carteira');
+            alerta.innerText = msg;
+            alerta.className = `text-center text-xs font-bold p-3 rounded-xl mt-4 border ${classes}`;
+        }
+
+        sincronizarInterfaces();
+    </script>
+</body>
 </html>
