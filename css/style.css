@@ -8,18 +8,23 @@ RESET GLOBAL
   box-sizing: border-box;
 }
 
+a {
+  color: inherit;
+  /* Ou defina uma cor específica, ex: #000000 */
+  text-decoration: none;
+}
+
+
 /* =========================
 BODY / BASE
 ========================= */
 
 body {
-  background: linear-gradient(
-    to right,
-    #2a2a2a 0%,
-    #1C1B1F 20%,
-    #1C1B1F 80%,
-    #2a2a2a 100%
-  );
+  background: linear-gradient(to right,
+      #2a2a2a 0%,
+      #1C1B1F 20%,
+      #1C1B1F 80%,
+      #2a2a2a 100%);
 
   font-family: system-ui;
 }
@@ -52,16 +57,18 @@ CAROUSEL
 
 .carousel img {
   height: 500px;
-  object-fit:fill;
+  object-fit: fill;
   border-radius: 10px;
   filter: brightness(75%);
 }
-.carousel-caption h5{
+
+.carousel-caption h5 {
   font-size: 28px;
   margin-bottom: 20px;
   text-shadow: 2px 2px 5px rgb(0, 0, 0);
 }
-.carousel-caption p{
+
+.carousel-caption p {
   font-size: 18px;
   text-shadow: 2px 2px 5px rgb(0, 0, 0);
 }
@@ -82,7 +89,7 @@ SEÇÃO JOGOS AO VIVO
   color: #c0c0c0;
 }
 
-.card-container-jogo{
+.card-container-jogo {
 
   background-color: #333;
   border: 2px solid #ffd700;
