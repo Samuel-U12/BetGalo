@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BetGalo - Fortune Tiger</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Seus arquivos originais de estilo -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cabecalho.css">
+    
+    <style>
+        .slot-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+        .slot-cell {
+            background: linear-gradient(145deg, #2a0808, #150202);
+            aspect-ratio: 1;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.8rem;
+            border: 2px solid #d97706;
+            box-shadow: inset 0 4px 8px rgba(0,0,0,0.8);
+            transition: transform 0.08s ease;
+        }
+        .cell-win {
+            border-color: #4ade80 !important;
+            background: linear-gradient(145deg, #166534, #14532d) !important;
+            animation: pulse-win 0.4s infinite alternate;
+        }
+        @keyframes pulse-win {
+            from { transform: scale(1); }
+            to { transform: scale(1.04); }
+        }
+    </style>
+</head>
+<body class="bg-[#0a1015] min-h-screen flex flex-col select-none">
+
+    <!-- SEU CABEÇALHO ORIGINAL INTEGRADO -->
+    <header class="cabecalho">
+        <div class="logo">
+            <img src="img/image 22.png" id="logo-do-site" alt="logo">
+            <span id="logo-texto">BET GALO</span>
+        </div>
+
+        <nav class="menu">
+            <a href="index.html" class="menu-item">HOME</a>
+            <a href="apostas.html" class="menu-item">APOSTAS</a>
+            <a href="cassino.html" class="menu-item item-ativo">CASSINO</a>
+        </nav>
+
+        <div class="link-perfil">
+            <a href="pagamento.html"><div class="card-container" id="saldo-topo">R$20.000,00</div></a>
+            <a href="perfil.html"><img src="img/perfil.jpg" alt="Foto de perfil" id="foto-perfil"></a>
+        </div>
+    </header>
+
+    <!-- ÁREA CENTRALIZADA APENAS PARA A ROLETA -->
+    <main class="flex-1 flex items-center justify-center p-4">
+        
+        <!-- TELA DO SLOT COMPACTA -->
+        <div class="w-full max-w-md bg-gradient-to-b from-[#ff3333] to-[#cc0000] p-4 rounded-3xl shadow-2xl border-4 border-yellow-500 text-center relative overflow-hidden">
+            
+            <div class="flex justify-between items-center px-2 mb-3">
+                <span class="text-xs bg-black/40 text-yellow-400 px-3 py-1 rounded-full font-bold border border-yellow-500/30">
+                    ⚡ MULTIPLIER 10x
+                </span>
+                <div class="text-yellow-400 text-xl animate-pulse"><i class="fa-solid fa-crown"></i></div>
+            </div>
+
+            <h1 class="text-2xl font-black text-yellow-300 uppercase tracking-widest drop-shadow-md mb-3">FORTUNE TIGER</h1>
+
+            <!-- GRADE DO JOGO 3x3 -->
+            <div class="bg-yellow-600 p-3 rounded-2xl shadow-inner mb-4">
+                <div class="slot-grid">
+                    <!-- Linha 1 -->
+                    <div id="c-0-0" class="slot-cell">🐯</div>
+                    <div id="c-0-1" class="slot-cell">🍊</div>
+                    <div id="c-0-2" class="slot-cell">💎</div>
+                    <!-- Linha 2 -->
+                    <div id="c-1-0" class="slot-cell">💰</div>
+                    <div id="c-1-1" class="slot-cell">🔥</div>
+                    <div id="c-1-2" class="slot-cell">👑</div>
+                    <!-- Linha 3 -->
+                    <div id="c-2-0" class="slot-cell">💎</div>
+                    <div id="c-2-1" class="slot-cell">🐯</div>
+                    <div id="c-2-2" class="slot-cell">🍊</div>
+                </div>
+            </div>
+
+            <!-- NOTIFICAÇÃO DE BÔNUS -->
+            <div id="badge-10x" class="hidden bg-yellow-400 text-red-700 text-xs font-black py-1.5 px-4 rounded-xl uppercase tracking-widest mb-4 border-2 border-white animate-bounce">
+                🎉 TELA CHEIA! MULTIPLICADOR 10x ATIVADO! 🎉
+            </div>
+
+            <!-- PAINEL DE STATUS -->
+            <div class="bg-black/60 p-3 rounded-xl border border-red-500/40 flex justify-between items-center mb-4 text-white">
+                <div class="text-left">
+                    <span class="text-[9px] text-slate-400 block uppercase font-bold tracking-wider">Aposta Fixa</span>
+                    <span class="text-sm font-black text-yellow-400">R$ 10,00</span>
+                </div>
+                <div id="status-jogo" class="text-xs font-bold text-yellow-400 bg-red-950/80 px-4 py-2 rounded-lg border border-red-700/50">
+                    Aperte Girar!
+                </div>
+            </div>
+
+            <!-- BOTÃO DE DISPARO -->
+            <button id="btn-girar" onclick="girarEngineReal()" class="w-full bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-500 hover:brightness-110 text-red-950 font-black py-4 px-6 rounded-2xl text-lg uppercase tracking-widest shadow-xl transition-all transform active:scale-95 border-0 cursor-pointer flex items-center justify-center gap-2">
+                <i class="fa-solid fa-rotate mr-1"></i> GIRAR AGORA
+            </button>
+        </div>
+
+    </main>
+
+    <!-- ENGINE MATEMÁTICA E GRÁFICA -->
+    <script>
+        const symbols = ['🍊', '💎', '💰', '🔥', '👑', '🐯'];
+        let saldo = 20000.00;
+        const custoAposta = 10.00;
+        let emExecucao = false;
+
+        function girarEngineReal() {
+            if (emExecucao) return;
+            if (saldo < custoAposta) {
+                atualizarPainelStatus("Saldo Insuficiente!", "text-red-400");
+                return;
+            }
+
+            emExecucao = true;
+            document.getElementById('btn-girar').disabled = true;
+            document.getElementById('badge-10x').classList.add('hidden');
+            removerMarcacoesVitoria();
+            atualizarPainelStatus("Girando...", "text-amber-300");
+
+            saldo -= custoAposta;
+            sincronizarDisplaysSaldo();
+
+            let rodadasGraficas = 0;
+            let cicloGrafico = setInterval(() => {
+                for(let r=0; r<3; r++) {
+                    for(let c=0; c<3; c++) {
+                        document.getElementById(`c-${r}-${c}`).innerText = symbols[Math.floor(Math.random() * symbols.length)];
+                    }
+                }
+                rodadasGraficas++;
+                if (rodadasGraficas >= 15) {
+                    clearInterval(cicloGrafico);
+                    calcularMatrizResultados();
+                }
+            }, 80);
+        }
+
+        function calcularMatrizResultados() {
+            let grade = [
+                ['', '', ''],
+                ['', '', ''],
+                ['', '', '']
+            ];
+
+            const forçarCombinacao = Math.random() < 0.50;
+            const simboloAlvo = symbols[Math.floor(Math.random() * symbols.length)];
+
+            for(let r=0; r<3; r++) {
+                for(let c=0; c<3; c++) {
+                    if (forçarCombinacao && Math.random() < 0.70) {
+                        grade[r][c] = simboloAlvo;
+                    } else {
+                        grade[r][c] = symbols[Math.floor(Math.random() * symbols.length)];
+                    }
+                    document.getElementById(`c-${r}-${c}`).innerText = grade[r][c];
+                }
+            }
+
+            const linhasEstrategicas = [
+                { id: 'H1', celulas: [[0,0], [0,1], [0,2]] },
+                { id: 'H2', celulas: [[1,0], [1,1], [1,2]] },
+                { id: 'H3', celulas: [[2,0], [2,1], [2,2]] },
+                { id: 'D1', celulas: [[0,0], [1,1], [2,2]] },
+                { id: 'D2', celulas: [[2,0], [1,1], [0,2]] }
+            ];
+
+            let contagemLinhasGanhas = 0;
+            let coordenadasParaAcender = new Set();
+            let multiplicadorAcumulado = 0;
+
+            linhasEstrategicas.forEach(linha => {
+                let s1 = grade[linha.celulas[0][0]][linha.celulas[0][1]];
+                let s2 = grade[linha.celulas[1][0]][linha.celulas[1][1]];
+                let s3 = grade[linha.celulas[2][0]][linha.celulas[2][1]];
+
+                if (s1 === s2 && s2 === s3) {
+                    contagemLinhasGanhas++;
+                    linha.celulas.forEach(coord => coordenadasParaAcender.add(`${coord[0]}-${coord[1]}`));
+                    
+                    if (s1 === '🐯') multiplicadorAcumulado += 8;
+                    else if (s1 === '👑' || s1 === '🔥') multiplicadorAcumulado += 4;
+                    else multiplicadorAcumulado += 2;
+                }
+            });
+
+            let itemRef = grade[0][0];
+            let ehTelaCheia = grade.every(linha => linha.every(item => item === itemRef));
+
+            if (contagemLinhasGanhas > 0) {
+                let ganhoFinal = custoAposta * multiplicadorAcumulado;
+
+                if (ehTelaCheia) {
+                    ganhoFinal = ganhoFinal * 10;
+                    document.getElementById('badge-10x').classList.remove('hidden');
+                }
+
+                saldo += ganhoFinal;
+                sincronizarDisplaysSaldo();
+
+                coordenadasParaAcender.forEach(id => {
+                    document.getElementById(`c-${id}`).classList.add('cell-win');
+                });
+
+                atualizarPainelStatus(`Ganhou R$ ${ganhoFinal.toFixed(2)}!`, "text-green-400 font-black");
+            } else {
+                atualizarPainelStatus("Tente Novamente", "text-slate-300");
+            }
+
+            emExecucao = false;
+            document.getElementById('btn-girar').disabled = false;
+        }
+
+        function removerMarcacoesVitoria() {
+            for(let r=0; r<3; r++) {
+                for(let c=0; c<3; c++) {
+                    document.getElementById(`c-${r}-${c}`).classList.remove('cell-win');
+                }
+            }
+        }
+
+        function atualizarPainelStatus(texto, classeCor) {
+            const painel = document.getElementById('status-jogo');
+            painel.innerText = texto;
+            painel.className = `text-xs font-bold ${classeCor} bg-red-950/80 px-4 py-2 rounded-lg border border-red-700/50`;
+        }
+
+        function sincronizarDisplaysSaldo() {
+            const conv = saldo.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            document.getElementById('saldo-topo').innerText = conv;
+        }
+    </script>
+</body>
+</html>
